@@ -16,8 +16,23 @@
 5) Compiled Tensorflow Keras model(s) saved in 'Source/Brokers/' as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade
 - Example: 'dnnBTCModel.h5' to monitor the BTC market or 'dnnADAModel.h5' to monitor the ADA market
 6) Created file called 'cc_gas.py' in Source/Util/ with the method 'cc_burn' in it that takes the parameter fields market, model, volume, demaState, tbp, tsp, and cc from the market group brokers and generates 4 unique variables from that set of data
-- cc_burn must return a string of 4 variables seperated by commas like: str(var1) + "," + str(var2) + "," + str(var3) + "," + str(var4);
-- These 4 variables are then turned into a feature set to be used for training and predicting by the provided H5 models
+- The method 'cc_burn' must return a string of 4 variables seperated by commas like:
+```
+str(var1) + "," + str(var2) + "," + str(var3) + "," + str(var4);
+```
+- Buying and selling at market price based on the evaluation can be done like:
+```
+if(conditionIsMet):
+  auth_client.place_market_order(str(market),"sell",str(volume));
+  tbp = sellPrice;
+  cc = 0
+elif(otherConditionIsMet):
+  auth_client.place_market_order(str(market),"buy",str(volume));
+  tsp = buyPrice;
+  cc = 0;
+else:
+  cc = cc + 1;
+```
 
 # Instructions
  1) Open a new Git Bash Terminal in 'Source/Brokers/'
