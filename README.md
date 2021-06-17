@@ -27,7 +27,7 @@ model.compile(optimizer='adam', loss='mean_squared_error');
 model.save("dnnBTCModel.h5");
 model.save("dnnADAModel.h5");
 ```
-7) Created file called 'cc_gas.py' in Source/Util/ with the method 'cc_burn' in it that takes the parameter fields market, model, volume, demaState, tbp, tsp, and cc from the market group brokers and generates 4 unique variables from that set of data
+7) Created file called 'cc_gas.py' in Source/Util/ with the method 'cc_burn' in it that takes the parameter fields market, model, volume, demaState, tbp, tsp, and cc from the market group brokers and generates 4 numeric unique variables from that set of data
 ```
 def cc_burn(market, model, volume, demaState, tbp, tsp, cc, client):
   code...
