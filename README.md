@@ -8,8 +8,14 @@
 # Prerequisites
 1) Download and Install Git Bash Terminal (https://gitforwindows.org/)
 2) Download and Install Python (https://www.python.org/downloads/)
-3) Execute 'pip install cbpro', 'pip install tensorflow', 'pip install numpy', 'pip install pandas'
-4) Copy the 'example-config.py' in the 'Source/Util' directory and rename the copy to 'config.py' and fill out with your Coinbase Pro API token information
+3) Execute:
+```
+  pip install cbpro
+  pip install tensorflow==2.5.0
+  pip install numpy
+  pip install pandas
+```
+5) Copy the 'example-config.py' in the 'Source/Util' directory and rename the copy to 'config.py' and fill out with your Coinbase Pro API token information
 ```
 - API_KEY
 - API_SECRET
