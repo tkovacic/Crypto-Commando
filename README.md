@@ -34,7 +34,7 @@ def cc_burn(market, model, volume, demaState, tbp, tsp, cc, client):
   output = str(var1) + "," + str(var2) + "," + str(var3) + "," + str(var4);
   return output;
 ```
-- The method 'cc_burn' must return a string of 4 variables seperated by commas like:
+- The method 'cc_burn' must return a string of 4 numeric variables seperated by commas like:
 ```
 str(var1) + "," + str(var2) + "," + str(var3) + "," + str(var4);
 ```
