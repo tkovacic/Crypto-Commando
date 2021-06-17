@@ -31,7 +31,7 @@ model.save("dnnADAModel.h5");
 ```
 def cc_burn(market, model, volume, demaState, tbp, tsp, cc, client):
   endTime = datetime.today().isoformat();
-  startTime = (datetime.today()-timedelta(days=5)).isoformat();
+  startTime = (datetime.today()-timedelta(days=1)).isoformat();
   
   #Gather historic rates and persist into lists
   data = [];
