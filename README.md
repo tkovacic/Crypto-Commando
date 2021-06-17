@@ -29,11 +29,11 @@ str(var1) + "," + str(var2) + "," + str(var3) + "," + str(var4);
 - Buying and selling at market price based on the evaluation can be done like:
 ```
 if(conditionIsMet):
-  auth_client.place_market_order(str(market),"sell",str(volume));
+  client.place_market_order(str(market),"sell",str(volume));
   tbp = sellPrice;
   cc = 0
 elif(otherConditionIsMet):
-  auth_client.place_market_order(str(market),"buy",str(volume));
+  client.place_market_order(str(market),"buy",str(volume));
   tsp = buyPrice;
   cc = 0;
 else:
