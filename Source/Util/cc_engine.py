@@ -28,9 +28,11 @@ WARN = '\033[93m';
 logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',datefmt='%Y-%m-%d:%H:%M:%S',level=logging.ERROR);
 logger = logging.getLogger(__name__);
 
+client = cbpro.AuthenticatedClient(config.API_KEY,config.API_SEC,config.API_PHR);
+
 #functions
 def cc_cycle(a, b, c, d, e, f, g):
     try:
-        return cc_burn(a, b, c, d, e, f, g);
+        return cc_burn(a, b, c, d, e, f, g, client);
     except Exception as e:
         logging.error('Caught exception: ' + str(e));
