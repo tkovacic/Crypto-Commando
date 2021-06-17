@@ -76,6 +76,7 @@ else:
  ```
  # inchModel = tf.keras.models.load_model("dnn1INCHModel.h5");
  # print("Loaded 1INCH DNN model!");
+ 
  aaveModel = tf.keras.models.load_model("dnnAAVEModel.h5");
  print("Loaded AAVE DNN model!");
  
@@ -90,6 +91,7 @@ else:
  #     time.sleep(1 - ((time.time() - st) % 1));
  # except Exception as e:
  #     logging.error('Caught exception: ' + str(e));
+ 
  try:
      output = cc_cycle("AAVE-USD",aaveModel,tv2,demastate2,tbp2,tsp2,cc2);
      output = str(output).split(",");
