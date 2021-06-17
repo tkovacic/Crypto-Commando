@@ -35,7 +35,7 @@ def cc_burn(market, model, volume, demaState, tbp, tsp, cc, client):
   
   #Gather historic rates and persist into lists
   data = [];
-  for rates in auth_client.get_product_historic_rates(str(market),str(startTime),str(endTime),300):
+  for rates in client.get_product_historic_rates(str(market),str(startTime),str(endTime),300):
             data.append(rates[4]);
 ```
 - The method 'cc_burn' must return a string of 4 numeric variables seperated by commas like:
