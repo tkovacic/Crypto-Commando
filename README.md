@@ -21,7 +21,7 @@
 - API_SECRET
 - API_PASSPHRASE
 ```
-5) Compiled Tensorflow Keras model(s) saved in 'Source/Brokers/' with the expected input_shape of (1,5) as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade
+5) Compiled Tensorflow Keras model(s) saved in 'Source/Brokers/' with the expected input_shape of (1,5) as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade (https://www.tensorflow.org/api_docs/python/tf)
 ```
 model = Sequential();
 model.add(LSTM(units=10, return_sequences=True, input_shape=(1, 5)));
@@ -33,35 +33,7 @@ model.compile(optimizer='adam', loss='mean_squared_error');
 model.save("dnnBTCModel.h5");
 model.save("dnnADAModel.h5");
 ```
-6) Created file called 'cc_gas.py' in Source/Util/ with the method 'cc_burn' in it that takes the parameter fields market, model, volume, demaState, tbp, tsp, and cc from the market group brokers and generates 4 numeric unique variables from that set of data
-```
-def cc_burn(market, model, volume, demaState, tbp, tsp, cc, client):
-  endTime = datetime.today().isoformat();
-  startTime = (datetime.today()-timedelta(days=1)).isoformat();
-  
-  #Gather historic rates and persist into lists
-  data = [];
-  for rates in client.get_product_historic_rates(str(market),str(startTime),str(endTime),300):
-            data.append(rates[4]);
-```
-- The method 'cc_burn' must return a string of 4 numeric variables seperated by commas like:
-```
-output = str(var1) + "," + str(var2) + "," + str(var3) + "," + str(var4);
-return output;
-```
-- Buying and selling at market price based on the evaluation can be done like:
-```
-if(conditionIsMet):
-  client.place_market_order(str(market),"sell",str(volume));
-  tbp = sellPrice;
-  cc = 0
-elif(otherConditionIsMet):
-  client.place_market_order(str(market),"buy",str(volume));
-  tsp = buyPrice;
-  cc = 0;
-else:
-  cc = cc + 1;
-```
+6) Copy the file called 'example-cc_gas.py' in Source/Util/ and rename the copy to 'cc_gas.py'
 
 # Instructions
  1) Open a new Git Bash Terminal in 'Source/Brokers/'
