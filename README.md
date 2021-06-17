@@ -32,13 +32,6 @@
  1) 'Source/Brokers' Open up a specific market group broker python script:
  - Modify 'increment_pace' to adjust how frequently the monitor runs every second (default: 300)
  - Modify 'tv' to adjust the target volume size of coin that is bought and sold across the different monitored markets (default: varies)
- 2) 'Source/Util' Open up the cc_engine python script:
- - Modify 'shortLength' to adjust the fast moving average minutes of data (default: 60)
- - Modify 'longLength' to adjust the slow moving average minutes of data (default: 800)
- - Modify 'granularity' to adjust to intervals of a minute candle stick (60), 5 minute candle stick (300), 15 minute candle stick (900), 1 hour candle stick (3600), 6 hour candle stick (21600), or day candle stick (86400) (default: 300)
- - Modify 'longMargin' to adjust the profit margin for long positions (Value between 0 and 1) (default: 0.045)
- - Modify 'shortMargin' to adjust the profit margin for short positions (Value between 0 and 1) (default: 0.02)
- - Modify 'ccLimit' to adjust how many clash collisions are endured before giving in to market trend by selling or buying for a loss (default: 50)
  
  # Interface Legend
  - CP = "Current Price"
