@@ -10,10 +10,12 @@
 2) Download and Install Python (https://www.python.org/downloads/)
 3) Execute 'pip install cbpro', 'pip install tensorflow', 'pip install numpy', 'pip install pandas'
 4) Copy the 'example-config.py' in the 'Source/Util' directory and rename the copy to 'config.py' and fill out with your Coinbase Pro API token information
+```
 - API_KEY
 - API_SECRET
 - API_PASSPHRASE
-5) Compiled Tensorflow Keras model(s) saved in 'Source/Brokers/' with the expected input_shape of (1,5) as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade
+```
+6) Compiled Tensorflow Keras model(s) saved in 'Source/Brokers/' with the expected input_shape of (1,5) as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade
 ```
 model = Sequential();
 model.add(LSTM(units=10, return_sequences=True, input_shape=(1, 5)));
@@ -60,7 +62,23 @@ else:
  - Market Group Broker (MGB) Echo: CGLD, FORTH, LRC, NMR, UMA, BAL, FIL, REN, UNI, and YFI
  - Market Group Broker (MGB) Fox: CRV, TRB, SKL, CTSI
  3) In each of your interested market group broker files comment out any market where a corresponding H5 model file has not been supplied
- 4) Run the specific market group broker file by executing 'python cc_mgb_XYZ.py'
+ ```
+ # inchModel = tf.keras.models.load_model("dnn1INCHModel.h5");
+ # print("Loaded 1INCH DNN model!");
+ 
+ # try:
+ #     os.system('cls');
+ #     output = cc_cycle("1INCH-USD",inchModel,tv1,demastate1,tbp1,tsp1,cc1);
+ #     output = str(output).split(",");
+ #     demastate1 = output[0];
+ #     tbp1 = output[1];
+ #     tsp1 = output[2];
+ #     cc1 = output[3];
+ #     time.sleep(1 - ((time.time() - st) % 1));
+ # except Exception as e:
+ #     logging.error('Caught exception: ' + str(e));
+ ```
+ 5) Run the specific market group broker file by executing 'python cc_mgb_XYZ.py'
  ```
  python cc_mgb_alpha.py
  python cc_mgb_beta.py
