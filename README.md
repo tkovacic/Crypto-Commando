@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Crypto Commando Trader</h1>
-  <p>Python based Automated Algorithmic Cryptographic Trading Engine built using DEMA Technical Indicators on CoinBase Pro API Platform by Tim Kovacic using CBPro SDK by DanPaguin</p><br>
+  <p>Automated python based cryptographic trading engine built using algorithmic indicators and market fitted deep neural networking models commissioned through CoinBase Pro API Platform by Tim Kovacic using CBPro SDK by DanPaguin</p><br>
   <img width="560" height="456" src="https://static.wixstatic.com/media/c11e26_98214627f32540f7939870093be0a03b~mv2.png/v1/fill/w_560,h_456,al_c,q_85,usm_0.66_1.00_0.01/vectorstock_19626918_edited.webp">
 </div>
 <br>
