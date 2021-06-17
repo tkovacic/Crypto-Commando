@@ -13,9 +13,19 @@
 - API_KEY
 - API_SECRET
 - API_PASSPHRASE
-5) Compiled Tensorflow Keras model(s) saved in 'Source/Brokers/' as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade
+5) Compiled Tensorflow Keras model(s) saved in 'Source/Brokers/' with the expected input_shape of (1,5) as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade
+```
+model = Sequential();
+model.add(LSTM(units=10, return_sequences=True, input_shape=(1, 5)));
+model.add(Dense(units=1));
+model.compile(optimizer='adam', loss='mean_squared_error');
+```
 - Example: 'dnnBTCModel.h5' to monitor the BTC market or 'dnnADAModel.h5' to monitor the ADA market
-6) Created file called 'cc_gas.py' in Source/Util/ with the method 'cc_burn' in it that takes the parameter fields market, model, volume, demaState, tbp, tsp, and cc from the market group brokers and generates 4 unique variables from that set of data
+```
+model.save("dnnBTCModel.h5");
+model.save("dnnADAModel.h5");
+```
+7) Created file called 'cc_gas.py' in Source/Util/ with the method 'cc_burn' in it that takes the parameter fields market, model, volume, demaState, tbp, tsp, and cc from the market group brokers and generates 4 unique variables from that set of data
 ```
 def cc_burn(market, model, volume, demaState, tbp, tsp, cc, client):
   code...
