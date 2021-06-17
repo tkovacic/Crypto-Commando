@@ -30,13 +30,18 @@ model.save("dnnADAModel.h5");
 7) Created file called 'cc_gas.py' in Source/Util/ with the method 'cc_burn' in it that takes the parameter fields market, model, volume, demaState, tbp, tsp, and cc from the market group brokers and generates 4 numeric unique variables from that set of data
 ```
 def cc_burn(market, model, volume, demaState, tbp, tsp, cc, client):
-  code...
-  output = str(var1) + "," + str(var2) + "," + str(var3) + "," + str(var4);
-  return output;
+  endTime = datetime.today().isoformat();
+  startTime = (datetime.today()-timedelta(days=5)).isoformat();
+  
+  #Gather historic rates and persist into lists
+  data = [];
+  for rates in auth_client.get_product_historic_rates(str(market),str(startTime),str(endTime),300):
+            data.append(rates[4]);
 ```
 - The method 'cc_burn' must return a string of 4 numeric variables seperated by commas like:
 ```
-str(var1) + "," + str(var2) + "," + str(var3) + "," + str(var4);
+output = str(var1) + "," + str(var2) + "," + str(var3) + "," + str(var4);
+return output;
 ```
 - Buying and selling at market price based on the evaluation can be done like:
 ```
