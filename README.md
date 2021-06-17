@@ -61,6 +61,14 @@ else:
  - Market Group Broker (MGB) Fox: CRV, TRB, SKL, CTSI
  3) In each of your interested market group broker files comment out any market where a corresponding H5 model file has not been supplied
  4) Run the specific market group broker file by executing 'python cc_mgb_XYZ.py'
+ ```
+ python cc_mgb_alpha.py
+ python cc_mgb_beta.py
+ python cc_mgb_charlie.py
+ python cc_mgb_delta.py
+ python cc_mgb_echo.py
+ python cc_mgb_fox.py
+ ```
  
  # Configuration
  1) 'Source/Brokers' Open up a specific market group broker python script:
