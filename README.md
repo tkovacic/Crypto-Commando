@@ -21,7 +21,7 @@
 - API_SECRET
 - API_PASSPHRASE
 ```
-5) Compiled Tensorflow Keras model(s) saved in 'Source/Brokers/' with the expected input_shape of (1,5) as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade (https://www.tensorflow.org/api_docs/python/tf)
+5) Compile Tensorflow Keras model(s) saved to 'Source/Brokers/' with the expected input_shape of (1,5) as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade (https://www.tensorflow.org/api_docs/python/tf)
 ```
 model = Sequential();
 model.add(LSTM(units=10, return_sequences=True, input_shape=(1, 5)));
