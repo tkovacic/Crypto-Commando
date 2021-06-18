@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Crypto Commando Trader</h1>
-  <p>Python based Automated Algorithmic Cryptographic Trading Engine built using DEMA Technical Indicators on CoinBase Pro API Platform by Tim Kovacic using CBPro SDK by DanPaguin</p><br>
+  <p>Automated python based cryptographic trading engine built using algorithmic indicators and market fitted deep neural networking models commissioned through CoinBase Pro API Platform by Tim Kovacic using CBPro SDK by DanPaguin</p><br>
   <img width="560" height="456" src="https://static.wixstatic.com/media/c11e26_98214627f32540f7939870093be0a03b~mv2.png/v1/fill/w_560,h_456,al_c,q_85,usm_0.66_1.00_0.01/vectorstock_19626918_edited.webp">
 </div>
 <br>
@@ -8,13 +8,32 @@
 # Prerequisites
 1) Download and Install Git Bash Terminal (https://gitforwindows.org/)
 2) Download and Install Python (https://www.python.org/downloads/)
-3) Execute 'pip install cbpro', 'pip install tensorflow', 'pip install numpy', 'pip install pandas'
+3) Execute:
+```
+  pip install cbpro
+  pip install tensorflow==2.5.0
+  pip install numpy
+  pip install pandas
+```
 4) Copy the 'example-config.py' in the 'Source/Util' directory and rename the copy to 'config.py' and fill out with your Coinbase Pro API token information
+```
 - API_KEY
 - API_SECRET
 - API_PASSPHRASE
-5) Compiled Tensorflow Keras model(s) saved in 'Source/Brokers/' as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade
+```
+5) Compile Tensorflow Keras model(s) saved to 'Source/Brokers/' with the expected input_shape of (1,5) as H5 format 'dnn[Market-Code]Model.h5' for each market you are wishing to monitor and trade (https://www.tensorflow.org/api_docs/python/tf)
+```
+model = Sequential();
+model.add(LSTM(units=10, return_sequences=True, input_shape=(1, 5)));
+model.add(Dense(units=1));
+model.compile(optimizer='adam', loss='mean_squared_error');
+```
 - Example: 'dnnBTCModel.h5' to monitor the BTC market or 'dnnADAModel.h5' to monitor the ADA market
+```
+model.save("dnnBTCModel.h5");
+model.save("dnnADAModel.h5");
+```
+6) Copy the file called 'example-cc_gas.py' in Source/Util/ and rename the copy to 'cc_gas.py'
 
 # Instructions
  1) Open a new Git Bash Terminal in 'Source/Brokers/'
@@ -26,19 +45,50 @@
  - Market Group Broker (MGB) Echo: CGLD, FORTH, LRC, NMR, UMA, BAL, FIL, REN, UNI, and YFI
  - Market Group Broker (MGB) Fox: CRV, TRB, SKL, CTSI
  3) In each of your interested market group broker files comment out any market where a corresponding H5 model file has not been supplied
+ ```
+ # inchModel = tf.keras.models.load_model("dnn1INCHModel.h5");
+ # print("Loaded 1INCH DNN model!");
+ 
+ aaveModel = tf.keras.models.load_model("dnnAAVEModel.h5");
+ print("Loaded AAVE DNN model!");
+ 
+ # try:
+ #     os.system('cls');
+ #     output = cc_cycle("1INCH-USD",inchModel,tv1,demastate1,tbp1,tsp1,cc1);
+ #     output = str(output).split(",");
+ #     demastate1 = output[0];
+ #     tbp1 = output[1];
+ #     tsp1 = output[2];
+ #     cc1 = output[3];
+ #     time.sleep(1 - ((time.time() - st) % 1));
+ # except Exception as e:
+ #     logging.error('Caught exception: ' + str(e));
+ 
+ try:
+     output = cc_cycle("AAVE-USD",aaveModel,tv2,demastate2,tbp2,tsp2,cc2);
+     output = str(output).split(",");
+     demastate2 = output[0];
+     tbp2 = output[1];
+     tsp2 = output[2];
+     cc2 = output[3];
+     time.sleep(1 - ((time.time() - st) % 1));
+ except Exception as e:
+     logging.error('Caught exception: ' + str(e));
+ ```
  4) Run the specific market group broker file by executing 'python cc_mgb_XYZ.py'
+ ```
+ python cc_mgb_alpha.py
+ python cc_mgb_beta.py
+ python cc_mgb_charlie.py
+ python cc_mgb_delta.py
+ python cc_mgb_echo.py
+ python cc_mgb_fox.py
+ ```
  
  # Configuration
  1) 'Source/Brokers' Open up a specific market group broker python script:
  - Modify 'increment_pace' to adjust how frequently the monitor runs every second (default: 300)
  - Modify 'tv' to adjust the target volume size of coin that is bought and sold across the different monitored markets (default: varies)
- 2) 'Source/Util' Open up the cc_engine python script:
- - Modify 'shortLength' to adjust the fast moving average minutes of data (default: 60)
- - Modify 'longLength' to adjust the slow moving average minutes of data (default: 800)
- - Modify 'granularity' to adjust to intervals of a minute candle stick (60), 5 minute candle stick (300), 15 minute candle stick (900), 1 hour candle stick (3600), 6 hour candle stick (21600), or day candle stick (86400) (default: 300)
- - Modify 'longMargin' to adjust the profit margin for long positions (Value between 0 and 1) (default: 0.045)
- - Modify 'shortMargin' to adjust the profit margin for short positions (Value between 0 and 1) (default: 0.02)
- - Modify 'ccLimit' to adjust how many clash collisions are endured before giving in to market trend by selling or buying for a loss (default: 50)
  
  # Interface Legend
  - CP = "Current Price"
