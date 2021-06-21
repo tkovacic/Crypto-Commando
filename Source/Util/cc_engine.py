@@ -29,9 +29,9 @@ logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:
 logger = logging.getLogger(__name__);
 
 #functions
-def cc_cycle(market, model, volume, demaState, tbp, tsp, cc):
-    try:
-        client = cbpro.AuthenticatedClient(config.API_KEY,config.API_SEC,config.API_PHR);
-        return cc_burn(market, model, volume, demaState, tbp, tsp, cc, client);
-    except Exception as e:
-        logging.error('Caught exception: ' + str(e));
+def cc_cycle(market, model, volume, demaState, tbp, tsp, cc, steps, ppv, npv):
+    #try:
+    client = cbpro.AuthenticatedClient(config.API_KEY,config.API_SEC,config.API_PHR);
+    return cc_burn(market, model, volume, demaState, tbp, tsp, cc, steps, ppv, npv, client);
+    #except Exception as e:
+        #logging.error('Caught exception: ' + str(e));
