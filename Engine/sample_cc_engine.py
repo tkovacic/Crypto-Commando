@@ -8,12 +8,14 @@ import time
 import logging
 from datetime import date, datetime, timedelta
 import os
-import config
 import sys
 
 import numpy as np
 import tensorflow as tf
-from cc_gas import cc_burn
+
+sys.path.append("./Settings");
+import config
+from cc_util import calculateFeatures, fitModel, generatePrediction, printInterface
 
 #variables
 global OKCYAN;
@@ -29,9 +31,17 @@ logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:
 logger = logging.getLogger(__name__);
 
 #functions
-def cc_cycle(market, model, volume, demaState, tbp, tsp, cc, steps, ppv, npv):
-    #try:
+def cc_cycle(market, model, volume, a, b):
     client = cbpro.AuthenticatedClient(config.API_KEY,config.API_SEC,config.API_PHR);
-    return cc_burn(market, model, volume, demaState, tbp, tsp, cc, steps, ppv, npv, client);
-    #except Exception as e:
-        #logging.error('Caught exception: ' + str(e));
+
+    rawFeatureSet = calculateFeatures(market, a, b, client);
+    rawFeatureSet = rawFeatureSet.split("||");
+
+    f1 = float(rawFeatureSet[0]);
+    f2 = float(rawFeatureSet[1]);
+
+    fitModel(market, model, f1, f2);
+    printInterface(market, f1, f2);
+
+    output = str(a) + "||" + str(b);
+    return (output);
