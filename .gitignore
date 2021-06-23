@@ -1,3 +1,11 @@
 
 Source/Util/cc_gas.py
 Source/Util/config.py
+Source/Brokers/cc_mgb.py
+*.h5
+*.pyc
+Settings/config.py
+Engine/cc_util.py
+Models/cc_genModel.py
+Engine/cc_engine.py
+run.py
