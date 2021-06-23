@@ -84,13 +84,14 @@ model.save("dnnADAModel.h5");
  python cc_mgb_echo.py
  python cc_mgb_fox.py
  ```
+ <div align="center">
+ ![image](https://user-images.githubusercontent.com/20195504/123038591-b478e180-d3be-11eb-8220-f7f1871284ce.png)
+ </div>
  
  # Configuration
  1) 'Source/Brokers' Open up a specific market group broker python script:
  - Modify 'increment_pace' to adjust how frequently the monitor runs every second (default: 300)
  - Modify 'tv' to adjust the target volume size of coin that is bought and sold across the different monitored markets (default: varies)
- 
-![image](https://user-images.githubusercontent.com/20195504/123038591-b478e180-d3be-11eb-8220-f7f1871284ce.png)
 
  # Troubleshooting
  1) "ERROR [cc_engine.py:191] Caught exception: could not convert string to float: a" is recieved when you have set your shortLengh or longLength too long and the granularity too low so there is too much data for the CBPro API to return and will fail
