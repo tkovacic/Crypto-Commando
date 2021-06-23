@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Crypto Commando Trader</h1>
   <p>Automated python based cryptographic trading engine built using algorithmic indicators and market fitted deep neural networking models commissioned through CoinBase Pro API Platform by Tim Kovacic using CBPro SDK by DanPaguin</p><br>
-  <img width="560" height="456" src="https://static.wixstatic.com/media/c11e26_98214627f32540f7939870093be0a03b~mv2.png/v1/fill/w_560,h_456,al_c,q_85,usm_0.66_1.00_0.01/vectorstock_19626918_edited.webp">
+  <img src="https://static.wixstatic.com/media/c11e26_98214627f32540f7939870093be0a03b~mv2.png/v1/fill/w_560,h_456,al_c,q_85,usm_0.66_1.00_0.01/vectorstock_19626918_edited.webp">
 </div>
 <br>
 
@@ -90,13 +90,7 @@ model.save("dnnADAModel.h5");
  - Modify 'increment_pace' to adjust how frequently the monitor runs every second (default: 300)
  - Modify 'tv' to adjust the target volume size of coin that is bought and sold across the different monitored markets (default: varies)
  
- # Interface Legend
- - CP = "Current Price"
- - TBP = "Target Buying Price"
- - TSP = "Target Selling Price"
- - SP = "Support Price"
- - RP = "Resistance Price"
- - CC = "Clash Collisions"
+<img src="https://www.dropbox.com/s/zaqp7d3s7ddzkhj/cc-interface.PNG?dl=0">
 
  # Troubleshooting
  1) "ERROR [cc_engine.py:191] Caught exception: could not convert string to float: a" is recieved when you have set your shortLengh or longLength too long and the granularity too low so there is too much data for the CBPro API to return and will fail
