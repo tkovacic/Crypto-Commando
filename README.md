@@ -90,7 +90,7 @@ model.save("dnnADAModel.h5");
  - Modify 'increment_pace' to adjust how frequently the monitor runs every second (default: 300)
  - Modify 'tv' to adjust the target volume size of coin that is bought and sold across the different monitored markets (default: varies)
  
-<img src="https://previews.dropbox.com/p/thumb/ABMHqOtIWzJ9J2IxBZuUuhvM70xiwew_q9Db44eKziCxd_fHWZRyrqBKMKXja56-dl3AkcZUxiqOqDFPBd9g65QPKVzWYkuIJWDCyZTcSBR-dGGvCKYo8oTpubA5fdXb5rQB_F3VuaTvW8JONauZPe1IZMgv90I1egO_39juLU0yKm9gBNWuPe6b3Ql9U5sm6onUIvd_ONExSbc6N_akjEcy7fxk_ocvEuDocdMrv-Br5jtlX5i6mULOZerS2m7iZpOsZJKk8gRtAk7_bOjQrb78JsSd3AwI40uJb3onFx2jkt24kIYaZ_YEJ5J8zLv4LE4bV4E6tP_59SR64wsP5_daqC5j0pIGHHQ4-VJBNf9vfA/p.png?fv_content=true&size_mode=5">
+![image](https://user-images.githubusercontent.com/20195504/123038591-b478e180-d3be-11eb-8220-f7f1871284ce.png)
 
  # Troubleshooting
  1) "ERROR [cc_engine.py:191] Caught exception: could not convert string to float: a" is recieved when you have set your shortLengh or longLength too long and the granularity too low so there is too much data for the CBPro API to return and will fail
