@@ -1,4 +1,4 @@
-#TITLE: cc_mgb_alpha.py
+#TITLE: sample_run.py
 #AUTHOR: Timothy Damir Kovacic
 #DATE-CREATED: 05/23/2021
 
